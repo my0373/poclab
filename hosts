@@ -1,0 +1,3 @@
+# Obviously you'll want to replace this with the correct hosts.
+[idm]
+idmtest.nixgeek.co.uk    ansible_user=ansible ansible_host=192.168.0.202

@@ -1,0 +1,4 @@
+---
+## This is the entry playbook for the module.
+## The first thing we do is trigger a run on all of our IDM nodes.
+- include: playbooks/groups/idm.yaml
