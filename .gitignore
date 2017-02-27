@@ -1,0 +1,9 @@
+# PyCharm IDE project files
+*.idea
+# ansibile retry files
+*.retry
+# any accidently license files I may have left around
+*.zip
+*.tgz
+*.gz
+*.lic
