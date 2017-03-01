@@ -1,0 +1,33 @@
+---
+
+  # Here we check to see how many processes are running.
+  # We actually have to specify var.stdout and also cast to an int to do a comparison.
+
+  - name: Check if IDM is running
+    shell: /usr/sbin/ipactl status | grep -i running | wc -l
+    register: idm_process_count
+    ignore_errors: True
+    become: True
+    changed_when: False
+    tags:
+      - configuration
+
+  - debug:
+      var: idm_process_count.stdout
+      verbosity: 1
+    tags:
+      - debug
+
+  - name: Install IDM with DNS configured
+    command:  "{{ idm_install_command }} -r {{ idm_realm_name }} -n {{ idm_domain_name }} -p {{ idm_ds_password }} -a {{ idm_admin_password }} --setup-dns --auto-forwarders -U "
+    when: idm_process_count.stdout|int < 4 and setup_dns == True
+    become: True
+    tags:
+      - configuration
+
+  - name: Install IDM without DNS configured
+    command:  "{{ idm_install_command }} -r {{ idm_realm_name }} -n {{ idm_domain_name }} -p {{ idm_ds_password }} -a {{ idm_admin_password }} --ip-address={{ idm_primary_ip_address }} --no-host-dns -U "
+    when: idm_process_count.stdout|int < 4 and setup_dns == False
+    become: True
+    tags:
+      - configuration

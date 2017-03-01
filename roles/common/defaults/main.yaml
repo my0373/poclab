@@ -1,0 +1,19 @@
+default_packages:
+  - tree
+  - iptraf-ng
+  - git
+  - wget
+  - ntpdate
+  - bind-utils
+  - vim
+  - libselinux-python
+  - libsemanage-python
+  - python-firewall
+
+ntp_servers:
+  - '0.uk.pool.ntp.org'
+  - '1.uk.pool.ntp.org'
+
+refresh_subscription: True
+
+company_name: 'Acme Org'

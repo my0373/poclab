@@ -1,0 +1,20 @@
+---
+# Setup the Message of the day
+  - name: setup a MOTD
+    template:
+      src: motdtemplate.j2
+      dest: /etc/motd
+      owner: root
+      group: wheel
+      mode: 0644
+    become: True
+
+  - name: "Refresh the RHEL subscription"
+    include: refresh_subscription.yaml
+
+  - name: "Install some basic cli tools"
+    include: install_cli_tools.yaml
+
+  - name: "Configure NTP"
+    include: configure_ntp.yaml
+

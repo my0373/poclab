@@ -1,0 +1,8 @@
+---
+- name: enable ntpd
+  service: name=ntpd enabled=yes
+  become: True
+
+- name: restart ntpd
+  service: name=ntpd state=restarted
+  become: True

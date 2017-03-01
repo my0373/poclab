@@ -1,0 +1,12 @@
+---
+  - name: "Configure entropy on the system"
+    include: get-entropy.yml
+
+  - name: "Install the IDM packages"
+    include: install_idm.yaml
+
+  - name: "Configure IDM"
+    include:  configure_idm_install.yaml
+
+  - name: "Configure IDM Firewall rules"
+    include:  configure_idm_firewall.yaml

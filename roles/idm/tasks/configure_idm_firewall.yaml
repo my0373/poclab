@@ -1,0 +1,101 @@
+---
+
+  - firewalld:
+      service: https
+      permanent: true
+      state: enabled
+      immediate: True
+    become: True
+    tags:
+      - firewall
+
+  - firewalld:
+      service: http
+      permanent: true
+      state: enabled
+      immediate: True
+    become: True
+    tags:
+      - firewall
+
+  - firewalld:
+      service: ldap
+      permanent: true
+      state: enabled
+      immediate: True
+    become: True
+    tags:
+      - firewall
+
+  - firewalld:
+      service: ldaps
+      permanent: true
+      state: enabled
+      immediate: True
+    become: True
+    tags:
+      - firewall
+
+  - firewalld:
+      port: 88/tcp
+      permanent: true
+      state: enabled
+      immediate: True
+    become: True
+    tags:
+      - firewall
+
+  - firewalld:
+      port: 464/tcp
+      permanent: true
+      state: enabled
+      immediate: True
+    become: True
+    tags:
+      - firewall
+
+  - firewalld:
+      port: 88/udp
+      permanent: true
+      state: enabled
+      immediate: True
+    become: True
+    tags:
+      - firewall
+
+  - firewalld:
+      port: 464/udp
+      permanent: true
+      state: enabled
+      immediate: True
+    become: True
+    tags:
+      - firewall
+
+  - firewalld:
+      port: 53/udp
+      permanent: true
+      state: enabled
+      immediate: True
+    become: True
+    tags:
+      - firewall
+
+  - firewalld:
+      port: 53/tcp
+      permanent: true
+      state: enabled
+      immediate: True
+    become: True
+    tags:
+      - firewall
+
+  - firewalld:
+      port: 123/udp
+      permanent: true
+      state: enabled
+      immediate: True
+    become: True
+    tags:
+      - firewall
+

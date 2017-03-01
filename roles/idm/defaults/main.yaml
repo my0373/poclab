@@ -1,0 +1,7 @@
+setup_dns: True
+idm_realm_name: "TEST.LOCAL"
+idm_domain_name: "test.local"
+idm_ds_password: "password123"
+idm_admin_password: "password123"
+idm_install_command: "/usr/sbin/ipa-server-install"
+idm_primary_ip_address: "192.168.0.202"

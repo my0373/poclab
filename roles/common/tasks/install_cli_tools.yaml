@@ -1,0 +1,11 @@
+---
+
+  - name: Ensure default packages are installed
+    yum:
+      name={{ item }}
+      state=latest
+
+    with_items:
+     - "{{ default_packages }}"
+    become: True
+
