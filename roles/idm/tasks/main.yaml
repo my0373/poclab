@@ -1,12 +1,32 @@
 ---
+  - name: "Generate the IDM install script"
+    include:  generate_install_script.yaml
+    tags:
+      - idm_install
+      - idm_configure
+
+
   - name: "Configure entropy on the system"
     include: get-entropy.yml
+    tags:
+      - idm_install
+      - idm_configure
 
   - name: "Install the IDM packages"
     include: install_idm.yaml
+    tags:
+      - idm_install
+      - idm_configure
 
   - name: "Configure IDM"
-    include:  configure_idm_install.yaml
+    include:  run_idm_install_script.yaml
+    tags:
+      - idm_install
+      - idm_configure
 
   - name: "Configure IDM Firewall rules"
     include:  configure_idm_firewall.yaml
+    tags:
+      - idm_install
+      - idm_configure
+      - idm_firewall

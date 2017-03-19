@@ -1,7 +1,47 @@
+######################################################
+## IDM  configuration.
+##
+## Modifying these will change the behavior of Ansible
+## when installing or configuring IDM.
+######################################################
+
+
+######################################################
+## User variables
+######################################################
+
+## Configure IDM to install the BIND server. True or False.
 setup_dns: True
-idm_realm_name: "TEST.LOCAL"
-idm_domain_name: "test.local"
-idm_ds_password: "password123"
+
+## The default admin password
 idm_admin_password: "password123"
+
+## domain name
+idm_domain_name: "test.local"
+
+######################################################
+## Optional variables. If they aren't supplied, they are usually defaulted
+## (if required), in the templates.
+######################################################
+
+## If this IP isn't supplied, we will use the default IPv4 address.
+#idm_primary_ip_address: "192.168.0.202"
+
+## IDM Realm name. If absent, we will just uppercase the idm_domain_name
+#idm_realm_name: "TEST.LOCAL"
+
+## IDM DS password. If absent, we will use the IDM admin password.
+#idm_ds_password: "password123"
+
+######################################################
+## Constants. Best leave these unless you know better
+######################################################
+
+## The ipa server install command
 idm_install_command: "/usr/sbin/ipa-server-install"
-idm_primary_ip_address: "192.168.0.202"
+
+## The generated ipa server install script.
+idm_install_script: "/root/install_idm.sh"
+
+## Do you want IDM to perform a reverse lookup during install.
+idm_reverse_lookup_on_install: False
