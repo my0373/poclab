@@ -32,29 +32,62 @@ This is particularly important as it will set up a standard baseline, and ensure
   - Install some basic CLI tools.
   - Configure NTP.
 
+```
+roles/common/tasks
+├── configure_ntp.yaml
+├── install_cli_tools.yaml
+├── main.yaml
+├── motd.yaml
+└── refresh_subscription.yaml
+```
+
+#### Settings
+The settings for the common role can be viewed and modified here
+```
+poclab/roles/common/defaults/main.yaml
+```
+
+
 ### IDM
 #### Description
 IDM is the Red Hat supported version of the community FreeIPA project.
 It is included in Red Hat Enterprise Linux Server, tip of the hat to the guys at the FreeIPA project, link to the upstream project is in the credits below.
 
 #### Tasks (in order of execution)
-  - Generate a standard MOTD.
-  - Refresh the RHEL subscription.
-  - Install some basic cli tools.
-  - Configure NTP.
 
-#### IDM
-IDM is version of the FreeIPA project included in Red Hat Enterprise Linux.
-
-The FreeIPA project can be found here (https://www.freeipa.org/page/Main_Page).
-
-#### Role
-The role for IDM is called idm.
-
-#### All default role settings are in
-
-/roles/idm/defaults/main.yaml
+  - Configure entropy on the system
+  - Install the IDM packages
+  - Configure the IDM server.
+  - Configure IDM Firewall rules
+  
+```
+roles/idm/tasks
+├── configure_idm_firewall.yaml
+├── configure_idm_install.yaml
+├── get-entropy.yml
+├── install_idm.yaml
+└── main.yaml
+```
 
 
-#### Credits
-Just a quick tip of the hat to all the open source projects and contributors that make Open Source possible.
+#### Settings
+The settings for the IDM role can be viewed and modified here
+
+```
+poclab/roles/idm/defaults/main.yaml
+```
+
+
+
+### Credits
+As you will be aware, all of the components we are configuring are here because of Open Source and Free Software.
+A quick tip of the hat to all the open source projects and contributors that make Open Source possible.
+
+Just some of the projects & people that have made this possible
+- The Ansible Project 
+    - http://www.ansible.com
+    - https://github.com/ansible/ansible
+- The FreeIPA Project
+    - https://www.freeipa.org/page/Main_Page
+- The Fedora Project
+    - https://getfedora.org/
