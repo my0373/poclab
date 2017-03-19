@@ -1,0 +1,14 @@
+---
+## Here we define the mapping between hosts and roles
+## I'm also defining my group specific variables here.
+
+####### WARNING ########
+## This logs in directly as root, DO NOT USE THIS IN PRODUCTION!!!
+## It's there only because this is a POC environment, and will create the Ansible IDM user.
+## Other Ansible scripts will be using the Ansible user.
+
+- hosts: idm
+  remote_user: ansible
+  roles:
+  - common
+  - idm

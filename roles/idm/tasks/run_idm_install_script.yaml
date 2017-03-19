@@ -1,0 +1,21 @@
+---
+
+  # Here we check to see how many processes are running.
+  # We actually have to specify var.stdout and also cast to an int to do a comparison.
+
+  - name: Check if IDM is running
+    shell: /usr/sbin/ipactl status | grep -i running | wc -l
+    register: idm_process_count
+    ignore_errors: True
+    become: True
+    changed_when: False
+    tags:
+      - configuration
+
+  - name: Install IDM running the install script
+    command:  "{{ idm_install_script }}"
+    when: idm_process_count.stdout|int < 4
+    become: True
+    tags:
+      - configuration
+

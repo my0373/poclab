@@ -1,0 +1,7 @@
+---
+
+  - name: Refresh the subscription
+    command: /sbin/subscription-manager refresh
+    when: refresh_subscription
+    become: True
+

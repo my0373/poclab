@@ -1,0 +1,37 @@
+---
+  ## So the logical steps for this should be...
+  ## 1) Ensure ntpdate tool is installed
+  ## 2) If ntp server is not installed, then install it
+  ## 3) If the ntp server has just been installed, then ntpdate against the ntp server.
+  ## 4) Enable and start the ntp daemon
+  ## 5) Wait for ntpq -p to sync
+
+  - name: Ensure chrony package is removed
+    yum:
+      name: chrony
+      state: absent
+    become: True
+
+
+  - name: Ensure ntp is installed
+    yum:
+      name: ntp
+      state: latest
+    notify:
+      - restart ntpd
+      - enable ntpd
+    become: True
+
+
+
+
+
+
+
+
+
+
+
+
+
+

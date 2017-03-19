@@ -1,0 +1,13 @@
+---
+  - name: Refresh the subscription
+    command: /usr/bin/which bash
+    register: bash_shell
+
+  - name: Create an IDM install script
+    template:
+      src: idm_install_script.j2
+      dest: "{{ idm_install_script }}"
+      owner: root
+      group: wheel
+      mode: 0755
+    become: True

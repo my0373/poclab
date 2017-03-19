@@ -1,0 +1,15 @@
+---
+
+  - name: Ensure ipa-server is installed
+    yum:
+      name: ipa-server
+      state: latest
+    become: True
+
+  - name: Ensure ipa-server-dns is installed
+    yum:
+      name: ipa-server-dns
+      state: latest
+    when: "{{ setup_dns }}"
+    become: True
+

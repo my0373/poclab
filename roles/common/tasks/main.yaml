@@ -1,0 +1,14 @@
+---
+
+  - name: "Generate a standard MOTD"
+    include: refresh_subscription.yaml
+
+  - name: "Refresh the RHEL subscription"
+    include: refresh_subscription.yaml
+
+  - name: "Install some basic cli tools"
+    include: install_cli_tools.yaml
+
+  - name: "Configure NTP"
+    include: configure_ntp.yaml
+
